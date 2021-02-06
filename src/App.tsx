@@ -31,7 +31,6 @@ function App() {
 
   useEffect(() => {
     dispatch(fetchCategories());
-    dispatch(fetchJoke(activeCategory));
   }, []);
 
   if (error) {

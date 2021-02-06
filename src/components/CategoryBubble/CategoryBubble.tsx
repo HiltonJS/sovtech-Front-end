@@ -12,6 +12,7 @@ const CategoryBubbles = ({ categories }: CategoryBubble) => {
   const dispatch = useDispatch();
 
   const changeCategoryOnClick = (category: string) => {
+    console.log("clicked")
     dispatch(selectCategory(category));
     dispatch(fetchJoke(category));
   };

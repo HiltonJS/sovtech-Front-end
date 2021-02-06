@@ -52,11 +52,11 @@ import {
   ) => {
     const category = categoryIn.toLowerCase();
   
-    dispatch({ type: LOADING, payload: true });
+  console.log(category)
   
     const query = gql`
-      query jokes($category: String!) {
-        jokes(category: $category) {
+      query joke($category: String!) {
+        joke(category: $category) {
           id
           value
           categories
@@ -74,12 +74,14 @@ import {
         fetchPolicy: "network-only"
       })
       .then((result) => {
+        console.log(result)
         dispatch({
           type: GET_CATEGORY_JOKE,
-          payload: result.data.jokes
+          payload: result.data.joke
         });
       })
       .catch((error) => {
+        console.log(error)
         dispatch({
           type: GET_ERROR
         });
